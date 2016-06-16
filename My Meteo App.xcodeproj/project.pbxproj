@@ -15,6 +15,12 @@
 		0D31B6371D12B02200CEF846 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D31B6351D12B02200CEF846 /* LaunchScreen.storyboard */; };
 		0D31B6421D12B02200CEF846 /* My_Meteo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31B6411D12B02200CEF846 /* My_Meteo_AppTests.swift */; };
 		0D31B64D1D12B02200CEF846 /* My_Meteo_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31B64C1D12B02200CEF846 /* My_Meteo_AppUITests.swift */; };
+		0D61745A7CE7D6032D2010C5 /* Pods_My_Meteo_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F19AE08DD611507C326507D /* Pods_My_Meteo_AppTests.framework */; };
+		0D6F2C0C1D12BE36004966E2 /* MeteoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F2C0B1D12BE36004966E2 /* MeteoDataManager.swift */; };
+		0D6F2C0D1D12BE36004966E2 /* MeteoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F2C0B1D12BE36004966E2 /* MeteoDataManager.swift */; };
+		0D6F2C0E1D12BE36004966E2 /* MeteoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F2C0B1D12BE36004966E2 /* MeteoDataManager.swift */; };
+		120F1011F6A08E010A5B47C8 /* Pods_My_Meteo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F60C54F6A6772F740B31F9E /* Pods_My_Meteo_App.framework */; };
+		5ACE73E37AD9B66CBA441F13 /* Pods_My_Meteo_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C2DD60191789A99AFE565E /* Pods_My_Meteo_AppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,16 @@
 		0D31B6481D12B02200CEF846 /* My Meteo AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My Meteo AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D31B64C1D12B02200CEF846 /* My_Meteo_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Meteo_AppUITests.swift; sourceTree = "<group>"; };
 		0D31B64E1D12B02200CEF846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D6F2C0B1D12BE36004966E2 /* MeteoDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteoDataManager.swift; sourceTree = "<group>"; };
+		120F4E7CF81F56A2CCA562E8 /* Pods-My Meteo AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Meteo AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Meteo AppTests/Pods-My Meteo AppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		31F4715DA29B718C43080C97 /* Pods-My Meteo AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Meteo AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Meteo AppUITests/Pods-My Meteo AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4FB372B569E31F315B207B18 /* Pods-My Meteo App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Meteo App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Meteo App/Pods-My Meteo App.debug.xcconfig"; sourceTree = "<group>"; };
+		5EAB688C72E2256E664A58F8 /* Pods-My Meteo AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Meteo AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Meteo AppTests/Pods-My Meteo AppTests.release.xcconfig"; sourceTree = "<group>"; };
+		7F19AE08DD611507C326507D /* Pods_My_Meteo_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Meteo_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F60C54F6A6772F740B31F9E /* Pods_My_Meteo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Meteo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5C7E737AC45048853BE1EAA /* Pods-My Meteo AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Meteo AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Meteo AppUITests/Pods-My Meteo AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D4C1907F8DC80A50B7FB8B15 /* Pods-My Meteo App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Meteo App.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Meteo App/Pods-My Meteo App.release.xcconfig"; sourceTree = "<group>"; };
+		E6C2DD60191789A99AFE565E /* Pods_My_Meteo_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Meteo_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120F1011F6A08E010A5B47C8 /* Pods_My_Meteo_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D61745A7CE7D6032D2010C5 /* Pods_My_Meteo_AppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ACE73E37AD9B66CBA441F13 /* Pods_My_Meteo_AppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +102,8 @@
 				0D31B6401D12B02200CEF846 /* My Meteo AppTests */,
 				0D31B64B1D12B02200CEF846 /* My Meteo AppUITests */,
 				0D31B6281D12B02200CEF846 /* Products */,
+				4994B2B1F9544DEBC9D775FE /* Pods */,
+				BCBA31BD4C1320BD61ADAF0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +120,7 @@
 		0D31B6291D12B02200CEF846 /* My Meteo App */ = {
 			isa = PBXGroup;
 			children = (
+				0D6F2C0B1D12BE36004966E2 /* MeteoDataManager.swift */,
 				0D31B62A1D12B02200CEF846 /* AppDelegate.swift */,
 				0D31B62C1D12B02200CEF846 /* MasterViewController.swift */,
 				0D31B62E1D12B02200CEF846 /* DetailViewController.swift */,
@@ -128,6 +150,29 @@
 			path = "My Meteo AppUITests";
 			sourceTree = "<group>";
 		};
+		4994B2B1F9544DEBC9D775FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4FB372B569E31F315B207B18 /* Pods-My Meteo App.debug.xcconfig */,
+				D4C1907F8DC80A50B7FB8B15 /* Pods-My Meteo App.release.xcconfig */,
+				120F4E7CF81F56A2CCA562E8 /* Pods-My Meteo AppTests.debug.xcconfig */,
+				5EAB688C72E2256E664A58F8 /* Pods-My Meteo AppTests.release.xcconfig */,
+				31F4715DA29B718C43080C97 /* Pods-My Meteo AppUITests.debug.xcconfig */,
+				A5C7E737AC45048853BE1EAA /* Pods-My Meteo AppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BCBA31BD4C1320BD61ADAF0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F60C54F6A6772F740B31F9E /* Pods_My_Meteo_App.framework */,
+				7F19AE08DD611507C326507D /* Pods_My_Meteo_AppTests.framework */,
+				E6C2DD60191789A99AFE565E /* Pods_My_Meteo_AppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D31B6511D12B02200CEF846 /* Build configuration list for PBXNativeTarget "My Meteo App" */;
 			buildPhases = (
+				741C3286EA9AAB52B5D380FC /* [CP] Check Pods Manifest.lock */,
 				0D31B6231D12B02200CEF846 /* Sources */,
 				0D31B6241D12B02200CEF846 /* Frameworks */,
 				0D31B6251D12B02200CEF846 /* Resources */,
+				7FA746E9CD5FC9D896EED98D /* [CP] Embed Pods Frameworks */,
+				67D7489893027F196F6B9CEF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D31B6541D12B02200CEF846 /* Build configuration list for PBXNativeTarget "My Meteo AppTests" */;
 			buildPhases = (
+				71B4F37EB5BBD8C406C7D2AD /* [CP] Check Pods Manifest.lock */,
 				0D31B6391D12B02200CEF846 /* Sources */,
 				0D31B63A1D12B02200CEF846 /* Frameworks */,
 				0D31B63B1D12B02200CEF846 /* Resources */,
+				1AD05BD16BD9B02A741DFDD7 /* [CP] Embed Pods Frameworks */,
+				0D5C14C18CEAFBCB16173DAA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D31B6571D12B02200CEF846 /* Build configuration list for PBXNativeTarget "My Meteo AppUITests" */;
 			buildPhases = (
+				42C6E2447ECE2444D3350AF7 /* [CP] Check Pods Manifest.lock */,
 				0D31B6441D12B02200CEF846 /* Sources */,
 				0D31B6451D12B02200CEF846 /* Frameworks */,
 				0D31B6461D12B02200CEF846 /* Resources */,
+				BCA241197C16977F34751064 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,11 +307,135 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D5C14C18CEAFBCB16173DAA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Meteo AppTests/Pods-My Meteo AppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1AD05BD16BD9B02A741DFDD7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Meteo AppTests/Pods-My Meteo AppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42C6E2447ECE2444D3350AF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		67D7489893027F196F6B9CEF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Meteo App/Pods-My Meteo App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71B4F37EB5BBD8C406C7D2AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		741C3286EA9AAB52B5D380FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7FA746E9CD5FC9D896EED98D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Meteo App/Pods-My Meteo App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCA241197C16977F34751064 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Meteo AppUITests/Pods-My Meteo AppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0D31B6231D12B02200CEF846 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6F2C0C1D12BE36004966E2 /* MeteoDataManager.swift in Sources */,
 				0D31B62F1D12B02200CEF846 /* DetailViewController.swift in Sources */,
 				0D31B62D1D12B02200CEF846 /* MasterViewController.swift in Sources */,
 				0D31B62B1D12B02200CEF846 /* AppDelegate.swift in Sources */,
@@ -269,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6F2C0D1D12BE36004966E2 /* MeteoDataManager.swift in Sources */,
 				0D31B6421D12B02200CEF846 /* My_Meteo_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6F2C0E1D12BE36004966E2 /* MeteoDataManager.swift in Sources */,
 				0D31B64D1D12B02200CEF846 /* My_Meteo_AppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +582,7 @@
 		};
 		0D31B6521D12B02200CEF846 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FB372B569E31F315B207B18 /* Pods-My Meteo App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "My Meteo App/Info.plist";
@@ -415,6 +595,7 @@
 		};
 		0D31B6531D12B02200CEF846 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4C1907F8DC80A50B7FB8B15 /* Pods-My Meteo App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "My Meteo App/Info.plist";
@@ -427,6 +608,7 @@
 		};
 		0D31B6551D12B02200CEF846 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 120F4E7CF81F56A2CCA562E8 /* Pods-My Meteo AppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "My Meteo AppTests/Info.plist";
@@ -439,6 +621,7 @@
 		};
 		0D31B6561D12B02200CEF846 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EAB688C72E2256E664A58F8 /* Pods-My Meteo AppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "My Meteo AppTests/Info.plist";
@@ -451,6 +634,7 @@
 		};
 		0D31B6581D12B02200CEF846 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31F4715DA29B718C43080C97 /* Pods-My Meteo AppUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "My Meteo AppUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -462,6 +646,7 @@
 		};
 		0D31B6591D12B02200CEF846 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5C7E737AC45048853BE1EAA /* Pods-My Meteo AppUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "My Meteo AppUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -490,6 +675,7 @@
 				0D31B6531D12B02200CEF846 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D31B6541D12B02200CEF846 /* Build configuration list for PBXNativeTarget "My Meteo AppTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +684,7 @@
 				0D31B6561D12B02200CEF846 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D31B6571D12B02200CEF846 /* Build configuration list for PBXNativeTarget "My Meteo AppUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +693,7 @@
 				0D31B6591D12B02200CEF846 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
