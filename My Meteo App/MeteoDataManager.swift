@@ -28,6 +28,7 @@ class MeteoDataManager: NSObject {
         self.updateData()
     }
     
+    // MARK: - Handling data
     ///Tries to get new weather (meteo) data on the server
     func updateData() {
         Alamofire.request(.GET, "http://www.infoclimat.fr/public-api/gfs/json?_ll=48.85341,2.3488&_auth=CRNUQwV7AyFVeFFmVSNXfgRsUGVaLAMkBXkKaQtuBHkAawBhB2cDZVE%2FUC0PIAUzVHkHZAw3BzcAawN7AXMAYQljVDgFbgNkVTpRNFV6V3wEKlAxWnoDJAVuCmULeARmAGUAZwd6A2BROVA1DyEFMFRhB2IMLAcgAGIDYAFqAGUJalQ3BWMDZ1UzUTRVeld8BDJQN1pjAzkFbgo8C2UEZgAwAGIHbQM3UWhQNQ8hBThUbwdgDDoHPABlA2EBaAB8CXVUSQUVA3xVelFxVTBXJQQqUGVaOwNv&_c=c6776eedf1c97db9ac6082ada467bb6a", parameters: nil, encoding: .JSON, headers: nil)
@@ -63,6 +64,7 @@ class MeteoDataManager: NSObject {
                     return elt1.date.compare(elt2.date) == NSComparisonResult.OrderedAscending
                 })
                 
+                NSNotificationCenter.defaultCenter().postNotificationName("WEATHER_DATA_UPDATED", object: nil)
                 self.saveData()
         }
     }
