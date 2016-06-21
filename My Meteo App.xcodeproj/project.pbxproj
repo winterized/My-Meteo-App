@@ -140,13 +140,13 @@
 		0D31B6291D12B02200CEF846 /* My Meteo App */ = {
 			isa = PBXGroup;
 			children = (
-				0D6F2C0B1D12BE36004966E2 /* MeteoDataManager.swift */,
-				0D0AFDAD1D1301BA0063C56F /* MyLocationManager.swift */,
-				0D94924B1D13E3F20010450D /* AddressComponent.swift */,
-				0D0AFDA51D12E70B0063C56F /* WeatherData.swift */,
-				0D94924F1D13E54E0010450D /* City.swift */,
-				0D0AFDA91D1300240063C56F /* DatedWeather.swift */,
 				0D31B62A1D12B02200CEF846 /* AppDelegate.swift */,
+				0D6F2C0B1D12BE36004966E2 /* MeteoDataManager.swift */,
+				0D0AFDA51D12E70B0063C56F /* WeatherData.swift */,
+				0D0AFDA91D1300240063C56F /* DatedWeather.swift */,
+				0D0AFDAD1D1301BA0063C56F /* MyLocationManager.swift */,
+				0D94924F1D13E54E0010450D /* City.swift */,
+				0D94924B1D13E3F20010450D /* AddressComponent.swift */,
 				0D31B62C1D12B02200CEF846 /* MasterViewController.swift */,
 				0D31B62E1D12B02200CEF846 /* DetailViewController.swift */,
 				0D31B6301D12B02200CEF846 /* Main.storyboard */,

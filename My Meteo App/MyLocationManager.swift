@@ -31,21 +31,36 @@ class MyLocationManager: NSObject, CLLocationManagerDelegate, UIAlertViewDelegat
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse {
-            // Here we should present a view to the user explaining why we want to use his location
+        self.getLocationOrAuthorization()
+    }
+    
+    func getLocationOrAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .AuthorizedWhenInUse:
+            self.locationManager.requestLocation()
+        case .NotDetermined:
+            //Here in real life we should present a view explaining to the user why we want to use his location
             self.locationManager.requestWhenInUseAuthorization()
+        default:
+            MeteoDataManager.shared.updateData()
         }
-        
-        self.locationManager.startUpdatingLocation()
+    }
+    
+    ///Deals with the user authorizing or not geolocation
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        self.getLocationOrAuthorization()
     }
     
     ///Updates the stored location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.locationManager.stopUpdatingLocation()
         if let tempLocation = locations.last {
             self.retrieveCityFromLocation(tempLocation)
         }
-        print("Triggered location")
+    }
+    
+    ///Deals with geolocation error
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        MeteoDataManager.shared.updateData()
     }
     
     ///Finds the corresponding city to the user's location
@@ -58,26 +73,31 @@ class MyLocationManager: NSObject, CLLocationManagerDelegate, UIAlertViewDelegat
             .responseJSON { (response) in
                 guard response.result.isSuccess else {
                     print("Error while fetching city: \(response.result.error)")
+                    MeteoDataManager.shared.updateData()
                     return
                 }
                 
                 guard let responseDico = response.result.value as? [String: AnyObject] else {
                     print("Error while preprocessing city data")
+                    MeteoDataManager.shared.updateData()
                     return
                 }
                 
                 guard let resultsArray = responseDico["results"] as? [AnyObject] where resultsArray.count > 0 else {
                     print("Unable to find the city associated with the user's location")
+                    MeteoDataManager.shared.updateData()
                     return
                 }
                 
                 guard let firstResult = resultsArray[0] as? [String:AnyObject] where firstResult.count > 0 else {
                     print("Unable to process the city associated with the user's location")
+                    MeteoDataManager.shared.updateData()
                     return
                 }
                 
                 guard let addressComponents = firstResult["address_components"] as? [AnyObject] where addressComponents.count > 0 else {
-                    print("Unable to process the city associated with the user's location")
+                    print("Unable to process the city components associated with the user's location")
+                    MeteoDataManager.shared.updateData()
                     return
                 }
                 
@@ -85,8 +105,8 @@ class MyLocationManager: NSObject, CLLocationManagerDelegate, UIAlertViewDelegat
                     if let json = component as? JSON {
                         if let address = AddressComponent(json: json) where address.types.contains("locality"){
                             self.city = City(name: address.name, latitude: latitude, longitude: longitude)
-                            NSNotificationCenter.defaultCenter().postNotificationName("USER_LOCATION_UPDATED", object: nil)  //ICI Passer la ville
-                            print(self.city!)
+                            print("User is located in \(self.city!.name)")
+                            MeteoDataManager.shared.updateDataWithNewLocation()
                         }
                     }
                 }

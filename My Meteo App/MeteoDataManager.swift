@@ -20,18 +20,43 @@ class MeteoDataManager: NSObject {
     }
     
     private(set) var weatherPredictions: [DatedWeather]?
+    private(set) var city: City {
+        didSet {
+            NSUserDefaults.standardUserDefaults().setObject(city.toNSDictionary(), forKey: "city")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
     
     override init() {
+        if let cityDico = NSUserDefaults.standardUserDefaults().objectForKey("city") as? NSDictionary {
+            self.city = City(dico: cityDico)!
+        } else {
+            self.city = City(dico: NSDictionary(dictionary: ["name" : "Paris", "latitude" : "48.86", "longitude" : "2.35"]))!
+        }
+        
         super.init()
         
         self.loadData()
+        self.updateLocationAndData()
+    }
+    
+    ///Tries to get the user's location before updating weather data
+    func updateLocationAndData() {
+        MyLocationManager.shared.getLocationOrAuthorization()
+    }
+    
+    ///Stores the new city then triggers data update
+    func updateDataWithNewLocation() {
+        if let city = MyLocationManager.shared.city {
+            self.city = city
+        }
         self.updateData()
     }
     
     // MARK: - Handling data
-    ///Tries to get new weather (meteo) data on the server
-    func updateData() {
-        Alamofire.request(.GET, "http://www.infoclimat.fr/public-api/gfs/json?_ll=48.85341,2.3488&_auth=CRNUQwV7AyFVeFFmVSNXfgRsUGVaLAMkBXkKaQtuBHkAawBhB2cDZVE%2FUC0PIAUzVHkHZAw3BzcAawN7AXMAYQljVDgFbgNkVTpRNFV6V3wEKlAxWnoDJAVuCmULeARmAGUAZwd6A2BROVA1DyEFMFRhB2IMLAcgAGIDYAFqAGUJalQ3BWMDZ1UzUTRVeld8BDJQN1pjAzkFbgo8C2UEZgAwAGIHbQM3UWhQNQ8hBThUbwdgDDoHPABlA2EBaAB8CXVUSQUVA3xVelFxVTBXJQQqUGVaOwNv&_c=c6776eedf1c97db9ac6082ada467bb6a", parameters: nil, encoding: .JSON, headers: nil)
+    ///Tries to get new weather (meteo) data on the server for current location
+    func updateData() {        
+        Alamofire.request(.GET, "http://www.infoclimat.fr/public-api/gfs/json?_ll=\(self.city.latitude),\(self.city.longitude)&_auth=CRNUQwV7AyFVeFFmVSNXfgRsUGVaLAMkBXkKaQtuBHkAawBhB2cDZVE%2FUC0PIAUzVHkHZAw3BzcAawN7AXMAYQljVDgFbgNkVTpRNFV6V3wEKlAxWnoDJAVuCmULeARmAGUAZwd6A2BROVA1DyEFMFRhB2IMLAcgAGIDYAFqAGUJalQ3BWMDZ1UzUTRVeld8BDJQN1pjAzkFbgo8C2UEZgAwAGIHbQM3UWhQNQ8hBThUbwdgDDoHPABlA2EBaAB8CXVUSQUVA3xVelFxVTBXJQQqUGVaOwNv&_c=c6776eedf1c97db9ac6082ada467bb6a", parameters: nil, encoding: .JSON, headers: nil)
             .validate()
             .responseJSON { (response) in
                 guard response.result.isSuccess else {
@@ -65,6 +90,7 @@ class MeteoDataManager: NSObject {
                 })
                 
                 NSNotificationCenter.defaultCenter().postNotificationName("WEATHER_DATA_UPDATED", object: nil)
+                print("Updated data for \(self.city.name)")
                 self.saveData()
         }
     }
@@ -80,7 +106,7 @@ class MeteoDataManager: NSObject {
             }
             if tempPredictions.count > 0 {
                 self.weatherPredictions = tempPredictions
-                print("Loaded \(tempPredictions.count) dated weather elements to the device.")
+                print("Loaded \(tempPredictions.count) dated weather elements from the device.")
             }
         }
     }

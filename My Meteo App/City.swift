@@ -17,4 +17,19 @@ struct City {
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
-    }}
+    }
+    
+    init?(dico: NSDictionary) {
+        if let name = dico["name"] as? String, let lat = dico["latitude"] as? String, let lon = dico["longitude"] as? String {
+            self.name = name
+            self.latitude = lat
+            self.longitude = lon
+        } else {
+            return nil
+        }
+    }
+    
+    func toNSDictionary() -> NSDictionary {
+        return NSDictionary(dictionary: ["name" : name, "latitude" : latitude, "longitude" : longitude])
+    }
+}
