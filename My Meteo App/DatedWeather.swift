@@ -56,5 +56,9 @@ struct DatedWeather {
             "rain" : self.weather.rain,
             "humidity" : self.weather.humidity])
     }
+    
+    func formattedDate() -> String {
+        return MeteoDataManager.shared.dateFormatter.stringFromDate(self.date)
+    }
 }
 

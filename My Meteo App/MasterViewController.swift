@@ -11,34 +11,54 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    var objects = [DatedWeather]()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(refresh))
-        self.navigationItem.rightBarButtonItem = addButton
+        
+        self.title = MeteoDataManager.shared.city.name
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(forceUpdate))
+        self.navigationItem.rightBarButtonItem = refreshButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        self.selectFirstItem()
     }
 
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refresh), name: "WEATHER_DATA_UPDATED", object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "WEATHER_DATA_UPDATED", object: nil)
+        
+        super.viewWillDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func selectFirstItem() {
+        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+        self.performSegueWithIdentifier("showDetail", sender: nil)
+    }
 
     func refresh() {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        self.navigationItem.rightBarButtonItem?.enabled = true
+        self.tableView.reloadData()
+        self.selectFirstItem()
+    }
+    
+    func forceUpdate() {
+        self.navigationItem.rightBarButtonItem?.enabled = false
+        MeteoDataManager.shared.updateLocationAndData()
     }
 
     // MARK: - Segues
@@ -46,7 +66,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objects[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -62,29 +82,30 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        if let predictions = MeteoDataManager.shared.weatherPredictions {
+            objects = predictions
+            return objects.count
+        } else {
+            return 1
+        }
+        
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        if objects.count > 0 {
+            let object = objects[indexPath.row]
+            cell.textLabel!.text = object.formattedDate()
+        } else {
+            cell.textLabel!.text = "Please check your connexion and update"
+        }
+        
         return cell
     }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+        return false
     }
 
 

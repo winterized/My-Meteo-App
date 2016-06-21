@@ -26,6 +26,7 @@ class MeteoDataManager: NSObject {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
+    let dateFormatter = NSDateFormatter()
     
     override init() {
         if let cityDico = NSUserDefaults.standardUserDefaults().objectForKey("city") as? NSDictionary {
@@ -35,6 +36,9 @@ class MeteoDataManager: NSObject {
         }
         
         super.init()
+        
+        dateFormatter.locale = NSLocale.currentLocale()
+        dateFormatter.dateFormat = "EEEE d, H:mm"
         
         self.loadData()
         self.updateLocationAndData()

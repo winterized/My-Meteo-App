@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Initializing the singletons to fetch data.
+        // Initializing the singleton to fetch data.
         MeteoDataManager.shared
         
         // Preparing the views
