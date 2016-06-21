@@ -36,7 +36,7 @@ class MyLocationManager: NSObject, CLLocationManagerDelegate, UIAlertViewDelegat
     
     func getLocationOrAuthorization() {
         switch CLLocationManager.authorizationStatus() {
-        case .AuthorizedWhenInUse:
+        case .AuthorizedWhenInUse, .AuthorizedAlways:
             self.locationManager.requestLocation()
         case .NotDetermined:
             //Here in real life we should present a view explaining to the user why we want to use his location

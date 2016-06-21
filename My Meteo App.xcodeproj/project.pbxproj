@@ -34,6 +34,10 @@
 		0D9492501D13E54E0010450D /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94924F1D13E54E0010450D /* City.swift */; };
 		0D9492511D13E54E0010450D /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94924F1D13E54E0010450D /* City.swift */; };
 		0D9492521D13E54E0010450D /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94924F1D13E54E0010450D /* City.swift */; };
+		0DA92CCA1D1982DA006E8BC1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31B62C1D12B02200CEF846 /* MasterViewController.swift */; };
+		0DA92CCB1D1982DB006E8BC1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31B62C1D12B02200CEF846 /* MasterViewController.swift */; };
+		0DA92CCC1D1982E7006E8BC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31B62E1D12B02200CEF846 /* DetailViewController.swift */; };
+		0DA92CCD1D1982E7006E8BC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31B62E1D12B02200CEF846 /* DetailViewController.swift */; };
 		120F1011F6A08E010A5B47C8 /* Pods_My_Meteo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F60C54F6A6772F740B31F9E /* Pods_My_Meteo_App.framework */; };
 		5ACE73E37AD9B66CBA441F13 /* Pods_My_Meteo_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C2DD60191789A99AFE565E /* Pods_My_Meteo_AppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -476,6 +480,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DA92CCC1D1982E7006E8BC1 /* DetailViewController.swift in Sources */,
+				0DA92CCA1D1982DA006E8BC1 /* MasterViewController.swift in Sources */,
 				0D6F2C0D1D12BE36004966E2 /* MeteoDataManager.swift in Sources */,
 				0D0AFDAF1D1301BA0063C56F /* MyLocationManager.swift in Sources */,
 				0D0AFDA71D12F3B70063C56F /* WeatherData.swift in Sources */,
@@ -490,6 +496,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DA92CCD1D1982E7006E8BC1 /* DetailViewController.swift in Sources */,
+				0DA92CCB1D1982DB006E8BC1 /* MasterViewController.swift in Sources */,
 				0D6F2C0E1D12BE36004966E2 /* MeteoDataManager.swift in Sources */,
 				0D0AFDB01D1301BA0063C56F /* MyLocationManager.swift in Sources */,
 				0D0AFDA81D12F3B80063C56F /* WeatherData.swift in Sources */,

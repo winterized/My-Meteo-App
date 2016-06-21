@@ -25,7 +25,8 @@ class DetailViewController: UIViewController {
         if let detail = self.detailItem {
             self.title = detail.formattedDate()
             if let label = self.detailDescriptionLabel {
-                label.text = detail.formattedDate()
+                //Here we should use number formatters to display the numbers in the right locales, with the right number of decimals...
+                label.text = "Température: \(Int(round(detail.weather.temperature)))°C\nPluie: \(detail.weather.rain) mm\nHumidité de l'air: \(detail.weather.humidity) %\nVent: \(detail.weather.windAverage) km/h\n(Rafales à \(detail.weather.windMax) km/h)"
             }
         }
     }

@@ -46,8 +46,10 @@ class MasterViewController: UITableViewController {
     }
     
     func selectFirstItem() {
-        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
-        self.performSegueWithIdentifier("showDetail", sender: nil)
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+            self.performSegueWithIdentifier("showDetail", sender: nil)
+        }
     }
 
     func refresh() {
