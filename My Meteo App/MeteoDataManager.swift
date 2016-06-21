@@ -26,6 +26,7 @@ class MeteoDataManager: NSObject {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
+    //Date formatter is stored here to minimize its memory footprint vs the DatedWeather struct
     let dateFormatter = NSDateFormatter()
     
     override init() {
