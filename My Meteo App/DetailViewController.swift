@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
             self.configureView()
         }
     }
+    var waitView: UIView?
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -35,6 +36,33 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        
+        guard MeteoDataManager.shared.weatherPredictions?.count > 0 else {
+            self.justWait()
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(stopWaiting), name: "WEATHER_DATA_UPDATED", object: nil)
+            return
+        }
+    }
+    
+    func justWait() {
+        waitView = UIView(frame: self.view.bounds)
+        waitView!.backgroundColor = UIColor(white: 0, alpha: 0.8)
+        let label = UILabel(frame: CGRect(x: 10, y: 100, width: 300, height: 80))
+        label.text = "Fetching data on the server for the first time..."
+        label.numberOfLines = 0
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = NSTextAlignment.Center
+        waitView!.addSubview(label)
+        let actIndic = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        actIndic.center = CGPoint(x: label.center.x, y: label.frame.origin.y + label.frame.size.height + 60)
+        waitView!.addSubview(actIndic)
+        actIndic.startAnimating()
+        self.view.addSubview(waitView!)
+    }
+    
+    func stopWaiting() {
+        waitView?.removeFromSuperview()
+        waitView = nil
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,6 +12,7 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [DatedWeather]()
+    var waitView: UIView?
 
 
     override func viewDidLoad() {
@@ -24,19 +25,23 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        self.selectFirstItem()
+        
+        if MeteoDataManager.shared.weatherPredictions?.count > 0 {
+            self.selectFirstItem()
+        } else {
+            self.justWait()
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(stopWaiting), name: "WEATHER_DATA_UPDATED", object: nil)
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refresh), name: "WEATHER_DATA_UPDATED", object: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refresh), name: "WEATHER_DATA_UPDATED", object: nil)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "WEATHER_DATA_UPDATED", object: nil)
-        
+    override func viewWillDisappear(animated: Bool) {        
         super.viewWillDisappear(animated)
     }
 
@@ -62,6 +67,27 @@ class MasterViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem?.enabled = false
         MeteoDataManager.shared.updateLocationAndData()
     }
+    
+    func justWait() {
+        waitView = UIView(frame: self.view.bounds)
+        waitView!.backgroundColor = UIColor(white: 0, alpha: 0.8)
+        let label = UILabel(frame: CGRect(x: 10, y: 10, width: 300, height: 80))
+        label.text = "Fetching data on the server for the first time..."
+        label.numberOfLines = 0
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = NSTextAlignment.Center
+        waitView!.addSubview(label)
+        let actIndic = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        actIndic.center = CGPoint(x: label.center.x, y: label.frame.origin.y + label.frame.size.height + 60)
+        waitView!.addSubview(actIndic)
+        actIndic.startAnimating()
+        self.view.addSubview(waitView!)
+    }
+    
+    func stopWaiting() {
+        waitView?.removeFromSuperview()
+        waitView = nil
+    }
 
     // MARK: - Segues
 
@@ -85,10 +111,12 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let predictions = MeteoDataManager.shared.weatherPredictions {
+            waitView?.removeFromSuperview()
+            waitView = nil
             objects = predictions
             return objects.count
         } else {
-            return 1
+            return 0
         }
         
     }
@@ -99,8 +127,6 @@ class MasterViewController: UITableViewController {
         if objects.count > 0 {
             let object = objects[indexPath.row]
             cell.textLabel!.text = object.formattedDate()
-        } else {
-            cell.textLabel!.text = "Please check your connexion and update"
         }
         
         return cell
