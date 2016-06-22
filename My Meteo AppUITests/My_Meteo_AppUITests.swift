@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import My_Meteo_App
 
 class My_Meteo_AppUITests: XCTestCase {
         
@@ -31,6 +32,15 @@ class My_Meteo_AppUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        print("Nb of tables: \(tablesQuery.count)")
+        let cellsQuery = tablesQuery.cells
+        XCTAssertEqual(cellsQuery.count, 64, "Should have found 64 cells, found \(cellsQuery.count): \(cellsQuery.debugDescription)")
+        let firstCell = cellsQuery.elementBoundByIndex(0)
+        firstCell.tap()
+        
     }
     
 }
